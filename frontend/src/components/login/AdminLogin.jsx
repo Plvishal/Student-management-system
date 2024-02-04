@@ -16,7 +16,7 @@ function AdminLogin() {
     e.preventDefault();
     console.log(login);
     axios
-      .post('/api/user/stdLogin', login)
+      .post('/api/admin/admin-login', login)
       .then((result) => {
         console.log(result);
       })
