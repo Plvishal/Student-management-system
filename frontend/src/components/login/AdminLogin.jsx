@@ -1,7 +1,7 @@
 import { useState } from 'react';
-import './style/login.css';
+import '../style/login.css';
 import axios from 'axios';
-function Login() {
+function AdminLogin() {
   const [login, setLogin] = useState({
     email: '',
     password: '',
@@ -27,11 +27,8 @@ function Login() {
   return (
     <>
       <div className="login_container">
-        <form
-          className="border p-2  lg:col-3 sm:col-8 "
-          onSubmit={handleSubmit}
-        >
-          <h4 className="text-center mt-2 mb-2">Login Form</h4>
+        <form className="border p-2  col-3  " onSubmit={handleSubmit}>
+          <h4 className="text-center mt-2 mb-2">Login As Admin</h4>
           <label htmlFor="email" className="form-label">
             Email ID
           </label>
@@ -63,4 +60,4 @@ function Login() {
   );
 }
 
-export default Login;
+export default AdminLogin;
