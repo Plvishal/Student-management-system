@@ -1,15 +1,17 @@
 import mysql from 'mysql';
-const con = mysql.createConnection({
-  host: process.env.host,
-  user: process.env.user,
-  password: process.env.password,
-  database: process.env.database,
-});
 
-export const ConnectDB = con.connect((err) => {
+const con = mysql.createConnection({
+  host: 'localhost',
+  user: 'root',
+  password: 'root',
+  database: 'stdmanagementsys',
+});
+con.connect(function (err) {
   if (err) {
-    console.log(err);
+    console.log('connection error');
   } else {
-    console.log('connection successful with databases');
+    console.log('Connected wit DB');
   }
 });
+
+export default con;
