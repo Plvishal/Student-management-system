@@ -4,6 +4,7 @@ import path from 'path';
 import cookieParser from 'cookie-parser';
 import cors from 'cors';
 import userRouter from './src/routes/user.routes.js';
+import { errorHandlerMiddleware } from './middleware/errorHandlerMiddleware.js';
 const configPath = path.resolve('./.env');
 
 dotenv.config({ path: configPath });
@@ -13,4 +14,5 @@ app.use(cookieParser());
 app.use(cors());
 app.use('/api/user', userRouter);
 
+app.use(errorHandlerMiddleware);
 export default app;
