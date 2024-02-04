@@ -27,7 +27,7 @@ function AdminLogin() {
   return (
     <>
       <div className="login_container">
-        <form className="border p-2  col-3  " onSubmit={handleSubmit}>
+        <form className="border p-2  col-3  loginForm" onSubmit={handleSubmit}>
           <h4 className="text-center mt-2 mb-2">Login As Admin</h4>
           <label htmlFor="email" className="form-label">
             Email ID

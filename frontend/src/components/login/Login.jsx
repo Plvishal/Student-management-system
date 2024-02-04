@@ -27,7 +27,7 @@ function Login() {
   return (
     <>
       <div className="login_container">
-        <form className="border p-2  col-3 " onSubmit={handleSubmit}>
+        <form className="border p-2  col-3  loginForm" onSubmit={handleSubmit}>
           <h4 className="text-center mt-2 mb-2">Login As Student</h4>
           <label htmlFor="email" className="form-label">
             Email ID
@@ -51,6 +51,7 @@ function Login() {
             className="form-control"
             onChange={handleInputChnage}
           />
+
           <button className="btn btn-success mt-2 " type="submit">
             Login
           </button>
