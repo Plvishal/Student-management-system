@@ -22,8 +22,11 @@ function Dashboard() {
             </Link>
           </li>
           <li className="btn btn-success w-50 p-4">
-            <Link className="text-decoration-none text-white">
-              Add Studdent
+            <Link
+              className="text-decoration-none text-white"
+              to="/admin-login/student-registration"
+            >
+              Student Registration
             </Link>
           </li>
         </ul>
