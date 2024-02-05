@@ -6,6 +6,7 @@ import Home from './components/Home';
 import AdminDashboard from './components/admin/AdminDashboard.jsx';
 import Dashboard from './components/admin/Dashboard.jsx';
 import AddCourses from './components/admin/AddCourses.jsx';
+import AddDepartmaent from './components/admin/AddDepartmaent.jsx';
 
 function App() {
   return (
@@ -17,7 +18,8 @@ function App() {
           <Route path="/admin-login" element={<AdminLogin />}></Route>
           <Route path="/admin-login" element={<AdminDashboard />}>
             <Route path="dashboard" element={<Dashboard />}></Route>
-            <Route  path="add-courses" element={<AddCourses/>}></Route>
+            <Route path="add-courses" element={<AddCourses />}></Route>
+            <Route path="add-department" element={<AddDepartmaent />}></Route>
           </Route>
         </Routes>
       </BrowserRouter>

@@ -29,7 +29,6 @@ export const addCourses = (req, res, next) => {
   // const { courses, year, id } = req.body;
   const values = [req.body.id, req.body.courses, req.body.year];
 
-
   const sql = 'INSERT INTO courses  VALUES (?)';
   con.query(sql, [values], (err, result) => {
     if (err) {
@@ -53,5 +52,34 @@ export const getAllCourses = (req, res, next) => {
     }
   });
 };
-export const addDepartment = (req, res, next) => {};
+export const addDepartment = (req, res, next) => {
+  const values = [req.body.dep_id, req.body.dep_name, req.body.dep_st_name];
+  const { dep_name, dep_st_name } = req.body;
+  if (!dep_name || !dep_st_name) {
+    return res.json({ msg: 'All field are required ' });
+  }
+
+  const sql = 'INSERT INTO department  VALUES (?)';
+  con.query(sql, [values], (err, result) => {
+    if (err) {
+      return res.json({ Status: false, msg: 'Query Error' });
+    }
+    if (result.affectedRows > 0) {
+      return res.json({ msg: 'Department added successfully' });
+    } else {
+      return res.json({ msg: 'Something went wrong ' });
+    }
+  });
+};
+export const getDepartment = (req, res, next) => {
+  const sql = 'select * from department';
+  con.query(sql, (err, result) => {
+    if (err) {
+      return res.json({ Status: false, msg: 'Query Error' });
+    }
+    if (result.length > 0) {
+      return res.json({ result });
+    }
+  });
+};
 export const studentregistration = (req, res, next) => {};
