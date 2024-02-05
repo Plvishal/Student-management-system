@@ -1,63 +1,77 @@
-import { useState } from 'react';
-import '../style/login.css';
-import axios from 'axios';
+import { Link, Outlet } from 'react-router-dom';
+import 'bootstrap-icons/font/bootstrap-icons.css';
+
 function AdminLogin() {
-  const [login, setLogin] = useState({
-    email: '',
-    password: '',
-  });
-  axios.withCredentials = true;
-  const handleInputChnage = (e) => {
-    setLogin((currValue) => {
-      return { ...currValue, [e.target.name]: e.target.value };
-    });
-  };
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    console.log(login);
-    axios
-      .post('/api/user/stdLogin', login)
-      .then((result) => {
-        console.log(result);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-  };
   return (
     <>
-      <div className="login_container">
-        <form
-          className="border p-2  lg:col-3 sm:col-8 "
-          onSubmit={handleSubmit}
-        >
-          <h4 className="text-center mt-2 mb-2">Login Form</h4>
-          <label htmlFor="email" className="form-label">
-            Email ID
-          </label>
-          <input
-            type="email"
-            id="email"
-            name="email"
-            className="form-control"
-            value={login.email}
-            onChange={handleInputChnage}
-          />
-          <label htmlFor="password" className="form-label">
-            Password
-          </label>
-          <input
-            type="password"
-            id="password"
-            name="password"
-            value={login.password}
-            className="form-control"
-            onChange={handleInputChnage}
-          />
-          <button className="btn btn-success mt-2 " type="submit">
-            Login
-          </button>
-        </form>
+      <div className="container-fluid">
+        <div className="row flex-nowrap ">
+          <div className="col-auto col-md-3 col-xl-2 px-sm-2 px-0 bg-dark">
+            <div className="d-flex flex-column align-items-center align-items-sm-start px-3 pt-2  text-white min-vh-100">
+              <Link
+                to="/dashboard"
+                className="d-flex align-items-center pb-3 mb-md-1 mt-md-1 me-md-auto text-white text-decoration-none"
+              >
+                <span className="fs-5 fw-bolder d-none d-sm-inline">CWC</span>
+              </Link>
+              <ul
+                className="nav nav-pills flex-column mb-sm-auto mb-0 align-items-start "
+                id="menu"
+              >
+                <li className="w-100">
+                  <Link
+                    to="/admin-login/dashboard"
+                    className="nav-link text-white px-0 align-middle"
+                  >
+                    <i className="fs-4 bi-speedometer ms-2"></i>
+                    <span className="ms-2 d-none d-sm-inline">Dashboard</span>
+                  </Link>
+                </li>
+                <li className="w-100">
+                  <Link
+                    to="/dashboard/employee"
+                    className="nav-link px-0 align-middle text-white"
+                  >
+                    <i className="fs-4 bi-people ms-2"></i>
+                    <span className="ms-2 d-none d-sm-inline">
+                      Manage Employee
+                    </span>
+                  </Link>
+                </li>
+                <li className="w-100">
+                  <Link
+                    to="/dashboard/category"
+                    className="nav-link px-0 align-middle text-white"
+                  >
+                    <i className="fs-4 bi-columns ms-2"></i>
+                    <span className="ms-2 d-none d-sm-inline">Category</span>
+                  </Link>
+                </li>
+                <li className="w-100">
+                  <Link
+                    to="/dashboard/profile"
+                    className="nav-link px-0 align-middle text-white"
+                  >
+                    <i className="fs-4 bi-person ms-2"></i>
+                    <span className="ms-2 d-none d-sm-inline">Profile</span>
+                  </Link>
+                </li>
+                <li className="w-100">
+                  <Link className="nav-link px-0 align-middle text-white">
+                    <i className="fs-4 bi-power ms-2"></i>
+                    <span className="ms-2 d-none d-sm-inline">Logout</span>
+                  </Link>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div className="col p-0 m-0">
+            <div className="p-2 d-flex justify-content-center shadow">
+              <h4>Admin Dashboard</h4>
+            </div>
+            <Outlet />
+          </div>
+        </div>
       </div>
     </>
   );

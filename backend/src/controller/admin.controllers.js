@@ -25,3 +25,33 @@ export const loginAdmin = (req, res, next) => {
     }
   });
 };
+export const addCourses = (req, res, next) => {
+  // const { courses, year, id } = req.body;
+  const values = [req.body.id, req.body.courses, req.body.year];
+
+
+  const sql = 'INSERT INTO courses  VALUES (?)';
+  con.query(sql, [values], (err, result) => {
+    if (err) {
+      return res.json({ Status: false, msg: 'Query Error' });
+    }
+    if (result.affectedRows > 0) {
+      return res.json({ msg: 'Courses added successfully' });
+    } else {
+      return res.json({ msg: 'Something went wrong ' });
+    }
+  });
+};
+export const getAllCourses = (req, res, next) => {
+  const sql = 'select * from courses';
+  con.query(sql, (err, result) => {
+    if (err) {
+      return res.json({ Status: false, mag: 'Query Error' });
+    }
+    if (result.length > 0) {
+      return res.json({ result });
+    }
+  });
+};
+export const addDepartment = (req, res, next) => {};
+export const studentregistration = (req, res, next) => {};

@@ -1,7 +1,9 @@
 import { useState } from 'react';
 import '../style/login.css';
 import axios from 'axios';
+import { useNavigate } from 'react-router';
 function AdminLogin() {
+  const navigate = useNavigate();
   const [login, setLogin] = useState({
     email: '',
     password: '',
@@ -19,6 +21,7 @@ function AdminLogin() {
       .post('/api/admin/admin-login', login)
       .then((result) => {
         console.log(result);
+        navigate("/admin-login/dashboard")
       })
       .catch((error) => {
         console.log(error);
