@@ -12,7 +12,7 @@ function AdminLogin() {
                 to="/dashboard"
                 className="d-flex align-items-center pb-3 mb-md-1 mt-md-1 me-md-auto text-white text-decoration-none"
               >
-                <span className="fs-5 fw-bolder d-none d-sm-inline">CWC</span>
+                <span className="fs-5 fw-bolder d-none d-sm-inline">STD</span>
               </Link>
               <ul
                 className="nav nav-pills flex-column mb-sm-auto mb-0 align-items-start "
@@ -65,11 +65,13 @@ function AdminLogin() {
               </ul>
             </div>
           </div>
-          <div className="col p-0 m-0">
+          <div className="col p-0 m-0 ">
             <div className="p-2 d-flex justify-content-center shadow">
               <h4>Admin Dashboard</h4>
             </div>
-            <Outlet />
+            <div className=" overflow-scroll">
+              <Outlet />
+            </div>
           </div>
         </div>
       </div>

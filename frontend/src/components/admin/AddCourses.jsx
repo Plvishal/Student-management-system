@@ -47,7 +47,7 @@ function AddCourses() {
   return (
     <>
       <div className="w-full h-full">
-        <div className=" h-svh bg-red-900 p-2 overflow-scroll">
+        <div className="bg-red-900 p-2 h-screen">
           <div>
             <form className="d-flex " onSubmit={handleSubmit}>
               <input

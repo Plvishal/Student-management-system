@@ -40,7 +40,7 @@ function AddDepartmaent() {
   };
   useEffect(() => {
     axios
-      .get('/api/admin/get-department')
+      .get('/api/admin/all-department')
       .then((result) => {
         setDepData(result.data.result);
       })
@@ -50,7 +50,7 @@ function AddDepartmaent() {
   }, []);
   return (
     <>
-      <div className="w-full h-svh bg-indigo-700 ">
+      <div className="w-full h-screen bg-indigo-700 ">
         <div className="p-3">
           <form
             className="d-flex flex-col w-1/2 m-auto border p-3 text-white gap-1"

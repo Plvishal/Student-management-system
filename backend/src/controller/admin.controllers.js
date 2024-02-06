@@ -44,6 +44,7 @@ export const addCourses = (req, res, next) => {
 export const getAllCourses = (req, res, next) => {
   const sql = 'select * from courses';
   con.query(sql, (err, result) => {
+    console.log();
     if (err) {
       return res.json({ Status: false, mag: 'Query Error' });
     }
@@ -75,7 +76,7 @@ export const getDepartment = (req, res, next) => {
   const sql = 'select * from department';
   con.query(sql, (err, result) => {
     if (err) {
-      return res.json({ Status: false, msg: 'Query Error' });
+      return res.json({ Status: false, mag: 'Query Error' });
     }
     if (result.length > 0) {
       return res.json({ result });
